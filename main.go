@@ -24,11 +24,11 @@ func getMovies(c *gin.Context) {
 	if err != nil {
 		panic(err)
 	}
-	// defer func() {
-	// 	if err := client.Disconnect(context.TODO()); err != nil {
-	// 		panic(err)
-	// 	}
-	// }()
+	defer func() {
+		if err := client.Disconnect(context.TODO()); err != nil {
+			panic(err)
+		}
+	}()
 	coll := client.Database("go-service-101").Collection("movies")
 	cursor, err := coll.Find(context.TODO(), bson.D{})
 	var datasMongo []bson.M
@@ -50,11 +50,11 @@ func postMovies(c *gin.Context) {
 	if err != nil {
 		panic(err)
 	}
-	// defer func() {
-	// 	if err := client.Disconnect(context.TODO()); err != nil {
-	// 		panic(err)
-	// 	}
-	// }()
+	defer func() {
+		if err := client.Disconnect(context.TODO()); err != nil {
+			panic(err)
+		}
+	}()
 	coll := client.Database("go-service-101").Collection("movies")
 
 	doc := bson.D{{"title", "Record of a Shriveled Datum"}, {"text", "No bytes, no problem. Just insert a document, in MongoDB"}}
