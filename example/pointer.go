@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
 
+import (
+	"fmt"
+	"strings"
+)
 type Vertex struct {
 	X int
 	Y int
@@ -13,6 +16,10 @@ var (
 	v3 = Vertex{}      // X:0 and Y:0
 	p  = &Vertex{1, 2} // has type *Vertex
 )
+
+func upperAllLetter(str *string) {
+	*str = strings.ToUpper(*str)
+}
 
 func main() {
 	i, j := 42, 2701
@@ -43,4 +50,9 @@ func main() {
 
 	fmt.Println("------------")
 	fmt.Println(v1, p, v2, v3)
+
+	fmt.Println("------------")
+	name := "Weerasak"
+	upperAllLetter(&name)
+	fmt.Println(name)
 }
