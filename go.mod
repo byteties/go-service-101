@@ -1,11 +1,11 @@
-module go-rest-api
+module go-service-101
 
 go 1.17
 
 require (
 	github.com/gin-gonic/gin v1.7.7
 	github.com/joho/godotenv v1.4.0
-	go.mongodb.org/mongo-driver v1.8.2
+	go.mongodb.org/mongo-driver v1.8.3
 )
 
 require (
